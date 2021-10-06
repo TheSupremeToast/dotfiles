@@ -1,0 +1,12 @@
+[Icon Theme]
+Name=Patrick-Hybrid
+
+Directories=apps/64
+Inherits=Zafiro-Icons,breeze,gnome,hicolor,elementary,Mint-X
+
+[apps/64]
+Size=64
+Context=Applications
+Minsize=16
+Maxsize=512
+Type=Scalable
