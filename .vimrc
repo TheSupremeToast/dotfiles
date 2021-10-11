@@ -8,6 +8,10 @@ set autoindent
 set noerrorbells
 set vb t_vb=
 
+set splitbelow
+set mouse=a
+
+" Plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'lervag/vimtex'
@@ -16,6 +20,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes' 
 Plug 'dylanaraps/wal.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'preservim/nerdtree'
+Plug 'roxma/nvim-yarp'
+Plug 'gaalcaras/ncm-R'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim'
+"Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/tagbar'
 
 call plug#end()
 
@@ -51,3 +66,17 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
+
+" NerdTree settings
+" let NERDTreeShowHidden = 1
+let NERDTreeShowLineNumbers = 0
+let NERDTreeShowBookmarks = 1
+nmap <C-Y> :NERDTreeToggle<CR>
+
+" Tagbar Settings
+let g:tagbar_autofocus = 1
+let g:tagbar_autoshowtag = 1
+let g:tagbar_position = 'botright vertical'
+nmap <C-P> :TagbarToggle<CR>
+
+
