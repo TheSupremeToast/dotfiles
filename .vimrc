@@ -1,4 +1,6 @@
 set number
+"set nu rnu
+set showcmd
 set tabstop=4
 set softtabstop=4
 set expandtab
@@ -7,6 +9,9 @@ set smarttab
 set autoindent
 set noerrorbells
 set vb t_vb=
+set so=5
+
+set clipboard+=unnamedplus
 
 set splitbelow
 set mouse=a
@@ -31,10 +36,31 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
 "Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/tagbar'
+"Plug 'szymonmaszke/vimpyter'
 
 call plug#end()
 
+" draw colorscheme from pywal
 colorscheme wal
+
+" Better searching
+set incsearch
+set ignorecase
+set smartcase
+
+" split prio
+set splitright splitbelow
+
+" set :Q to quit
+command! Q q
+" set :W to save
+command! W w
+
+" Set leader to comma
+let mapleader = ","
+
+" set ; to :
+nnoremap ; :
 
 " COC autocomplete settings
 set hidden
@@ -45,6 +71,7 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
+" Airline settings
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 
@@ -54,6 +81,10 @@ let g:airline_left_sep = "\uE0B5"
 let g:airline_left_sep = "\uE0B4"
 let g:airline_right_sep = "\uE0B7"
 let g:airline_right_sep = "\uE0B6"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = "\uE0B4"
+let g:airline#extensions#tabline#left_alt_sep = "\uE0B5"
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " " Copy to clipboard
 vnoremap  <leader>y  "+y
@@ -72,6 +103,7 @@ vnoremap <leader>P "+P
 let NERDTreeShowLineNumbers = 0
 let NERDTreeShowBookmarks = 1
 nmap <C-Y> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=23
 
 " Tagbar Settings
 let g:tagbar_autofocus = 1
@@ -79,4 +111,14 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_position = 'botright vertical'
 nmap <C-P> :TagbarToggle<CR>
 
+" buffer keybinds
+nmap <leader>T :enew<CR>
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>bq :bp <BAR> bd #<CR>
 
+"" buferline settings
+" set termguicolors
+lua << EOF
+require("bufferline").setup{}
+EOF
