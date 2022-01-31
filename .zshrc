@@ -61,8 +61,8 @@ export EDITOR=nvim
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias nav="anaconda-navigator"
-alias matlab="docker run -it --rm --shm-size=512M mathworks/matlab:r2021b"
+alias c="clear"
+alias jn="source ~/Documents/Scripts/jupyter-start.sh"
 
 # Kubernetes Aliases
 alias k="kubectl"
